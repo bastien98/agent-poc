@@ -1,14 +1,46 @@
 [project]
 name = "agent-poc"
 version = "0.1.0"
-description = ""
+description = "Agent POC with Strands and AWS Bedrock integration"
 authors = [
     {name = "Bastien Moenaert",email = "bastien.moenaert@persgroep.net"}
 ]
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
+    "boto3>=1.35.0",
+    "python-dotenv>=1.0.0",
+    "pydantic>=2.0.0",
+    "pydantic-settings>=2.0.0",
+    "strands-agents (>=1.13.0,<2.0.0)",
+    "openai (>=2.6.0,<3.0.0)",
 ]
+
+[project.scripts]
+agent-poc = "agent_poc.main:main"
+
+[tool.poetry]
+name = "agent-poc"
+version = "0.1.0"
+description = "Agent POC with Strands and AWS Bedrock integration"
+authors = ["Bastien Moenaert <bastien.moenaert@persgroep.net>"]
+readme = "README.md"
+packages = [{include = "agent_poc", from = "src"}]
+
+[tool.poetry.dependencies]
+python = "^3.12"
+boto3 = "^1.35.0"
+python-dotenv = "^1.0.0"
+pydantic = "^2.0.0"
+pydantic-settings = "^2.0.0"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.0.0"
+pytest-cov = "^5.0.0"
+black = "^24.0.0"
+ruff = "^0.6.0"
+mypy = "^1.18.2"
+types-boto3 = "^1.40.56"
 
 
 [build-system]
